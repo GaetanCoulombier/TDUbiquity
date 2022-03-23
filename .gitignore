@@ -1,6 +1,10 @@
-vendor/
-cache/
-logs/
+
+.buildpath
+.project
+.settings/
+
+app/cache/
+app/logs/
 .idea/
-app/config/config.php
-.htaccess
+vendor/
+.ubiquity/
