@@ -1,0 +1,10 @@
+
+.buildpath
+.project
+.settings/
+
+app/cache/
+app/logs/
+.idea/
+vendor/
+.ubiquity/

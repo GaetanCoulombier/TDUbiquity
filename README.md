@@ -1,3 +1,3 @@
 # TDUbiquity
 
-Ce dépot est le premier TD d'Ubiquity concernant la création d'une Todo list.
+Ce dépot est le deuxième TD d'Ubiquity concernant la création d'une messagerie.

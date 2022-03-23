@@ -8,12 +8,11 @@ return array(
 			"port"=>3306,
 			"user"=>"root",
 			"password"=>"",
-			"options"=>array(),
-			"cache"=>false,
-			"wrapper"=>"Ubiquity\\db\\providers\\pdo\\PDOWrapper"
+			"options"=>[],
+			"cache"=>false
 			],
 	"sessionName"=>"s62163a6d28541",
-	"namespaces"=>array(),
+	"namespaces"=>[],
 	"templateEngine"=>"Ubiquity\\views\\engine\\Twig",
 	"templateEngineOptions"=>[
 			"cache"=>false
@@ -22,20 +21,21 @@ return array(
 	"debug"=>true,
 	"logger"=>function (){return new \Ubiquity\log\libraries\UMonolog("fw-tds",\Monolog\Logger::INFO);},
 	"di"=>[
-			"@exec"=>array("jquery"=>function ($controller){
+			"@exec"=>[
+					"jquery"=>function ($controller){
 						return \Ajax\php\ubiquity\JsUtils::diSemantic($controller);
-					})
+					}
+					]
 			],
 	"cache"=>[
 			"directory"=>"cache/",
 			"system"=>"Ubiquity\\cache\\system\\ArrayCache",
-			"params"=>array()
+			"params"=>[]
 			],
 	"mvcNS"=>[
 			"models"=>"models",
 			"controllers"=>"controllers",
-			"rest"=>"",
-			"domains"=>"domains"
+			"rest"=>""
 			],
 	"onError"=>function ($code, $message = NULL, $controllerInstance = NULL){
 				switch ($code) {
