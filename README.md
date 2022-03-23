@@ -1,3 +1,3 @@
 # TDUbiquity
 
-Ce dépot est le premier TD d'Ubiquity concernant la création d'une Todo list.
+Ce dépot est le troixième TD d'Ubiquity concernant la création d'un site de gestion de groupes classé par organisation avec un systeme de connection.
