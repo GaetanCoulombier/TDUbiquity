@@ -1,16 +1,27 @@
 {% block header %}
 <div class="">
-    <h1 class="">Parcourir les stores ( )</h1>
+    <h1 class="">Parcourir les stores</h1>
 </div>
 {% endblock %}
 
 {% block body %}
 <div style="display: flex; flex-wrap : wrap">
     {% for elm in sections %}
-    <div style="width: 30%; margin: 20px;" class="ui segment">
-        <h1>{{elm.name}}</h1>
-        <p>{{elm.description}}</p>
-        <a href="store/section/{{elm.id}}" style="width: 100%;">Consulter le produit ( )</a>
+    <div class="ui link cards" style="width: 30%; margin: 10px;">
+        <div class="card">
+            <div class="content">
+                <div class="header">{{elm.name}}</div>
+                <div class="description">
+                    {{elm.description}}
+                </div>
+            </div>
+            <a href="store/section/{{elm.id}}" style="width: 100%;">
+                <div class="ui bottom attached button">
+                    <i class="zoom-in"></i>
+                    Consulter le produit
+                </div>
+            </a>
+        </div>
     </div>
     {% endfor %}
 </div>
