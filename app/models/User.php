@@ -1,4 +1,5 @@
 <?php
+
 namespace models;
 
 use Ubiquity\attributes\items\Id;
@@ -9,119 +10,136 @@ use Ubiquity\attributes\items\Table;
 use Ubiquity\attributes\items\OneToMany;
 
 #[Table(name: "user")]
-class User{
-	
-	#[Id()]
-	#[Column(name: "id",dbType: "int(11)")]
-	#[Validator(type: "id",constraints: ["autoinc"=>true])]
-	private $id;
+class User
+{
 
-	
-	#[Column(name: "name",dbType: "varchar(60)")]
-	#[Validator(type: "length",constraints: ["max"=>60,"notNull"=>true])]
-	private $name;
-
-	
-	#[Column(name: "email",dbType: "varchar(100)")]
-	#[Validator(type: "email",constraints: ["notNull"=>true])]
-	#[Validator(type: "length",constraints: ["max"=>100])]
-	private $email;
-
-	
-	#[Column(name: "password",dbType: "varchar(100)")]
-	#[Validator(type: "length",constraints: ["max"=>100,"notNull"=>true])]
-	#[Transformer(name: "password")]
-	private $password;
-
-	
-	#[OneToMany(mappedBy: "user",className: "models\\Basket")]
-	private $baskets;
-
-	
-	#[OneToMany(mappedBy: "user",className: "models\\Order")]
-	private $orders;
+    #[Id()]
+    #[Column(name: "id", dbType: "int(11)")]
+    #[Validator(type: "id", constraints: ["autoinc" => true])]
+    private $id;
 
 
-	 public function __construct(){
-		$this->baskets = [];
-		$this->orders = [];
-	}
+    #[Column(name: "name", dbType: "varchar(60)")]
+    #[Validator(type: "length", constraints: ["max" => 60, "notNull" => true])]
+    private $name;
 
 
-	public function getId(){
-		return $this->id;
-	}
+    #[Column(name: "email", dbType: "varchar(100)")]
+    #[Validator(type: "email", constraints: ["notNull" => true])]
+    #[Validator(type: "length", constraints: ["max" => 100])]
+    private $email;
 
 
-	public function setId($id){
-		$this->id=$id;
-	}
+    #[Column(name: "password", dbType: "varchar(100)")]
+    #[Validator(type: "length", constraints: ["max" => 100, "notNull" => true])]
+    #[Transformer(name: "password")]
+    private $password;
 
 
-	public function getName(){
-		return $this->name;
-	}
+    #[OneToMany(mappedBy: "user", className: "models\\Basket")]
+    private $baskets;
 
 
-	public function setName($name){
-		$this->name=$name;
-	}
+    #[OneToMany(mappedBy: "user", className: "models\\Order")]
+    private $orders;
 
 
-	public function getEmail(){
-		return $this->email;
-	}
+    public function __construct()
+    {
+        $this->baskets = [];
+        $this->orders = [];
+    }
 
 
-	public function setEmail($email){
-		$this->email=$email;
-	}
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
-	public function getPassword(){
-		return $this->password;
-	}
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
 
-	public function setPassword($password){
-		$this->password=$password;
-	}
+    public function getName()
+    {
+        return $this->name;
+    }
 
 
-	public function getBaskets(){
-		return $this->baskets;
-	}
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
 
-	public function setBaskets($baskets){
-		$this->baskets=$baskets;
-	}
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
 
-	 public function addToBaskets($basket){
-		$this->baskets[]=$basket;
-		$basket->setUser($this);
-	}
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 
 
-	public function getOrders(){
-		return $this->orders;
-	}
+    public function getPassword()
+    {
+        return $this->password;
+    }
 
 
-	public function setOrders($orders){
-		$this->orders=$orders;
-	}
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
 
 
-	 public function addToOrders($order){
-		$this->orders[]=$order;
-		$order->setUser($this);
-	}
+    public function getBaskets()
+    {
+        return $this->baskets;
+    }
 
 
-	 public function __toString(){
-		return ($this->email??'no value').'';
-	}
+    public function setBaskets($baskets)
+    {
+        $this->baskets = $baskets;
+    }
+
+
+    public function addToBaskets($basket)
+    {
+        $this->baskets[] = $basket;
+        $basket->setUser($this);
+    }
+
+
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+
+    public function setOrders($orders)
+    {
+        $this->orders = $orders;
+    }
+
+
+    public function addToOrders($order)
+    {
+        $this->orders[] = $order;
+        $order->setUser($this);
+    }
+
+
+    public function __toString()
+    {
+        return $this->name . ' (' . $this->email . ')';
+    }
 
 }
