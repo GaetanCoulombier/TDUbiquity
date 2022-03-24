@@ -4,6 +4,7 @@ namespace controllers;
  use models\Section;
  use Ubiquity\attributes\items\router\Route;
  use Ubiquity\orm\DAO;
+ use Ubiquity\utils\http\USession;
 
  /**
   * Controller StoreController
@@ -21,4 +22,21 @@ class StoreController extends \controllers\ControllerBase{
         $section = DAO::getById(Section::class, $idSection);
 		$this->loadView('StoreController/section.html',compact('section'));
 	}
+
+    #[Route('store/add/{idProduct}', name: 'store.add')]
+	public function addToCart($idProduct){
+        if(USession::get("cart") == null){
+            USession::set("cart",[[$idProduct=>1]]);
+        }else{
+
+        }
+        $this->index();
+	}
+
+    #[Route('store/all/', name: 'store.all')]
+	public function allProducts(){
+        $sections = DAO::getAll(Section::class);
+		$this->loadView('StoreController/allProducts.html',compact('sections'));
+	}
+
 }
