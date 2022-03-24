@@ -4,6 +4,8 @@ namespace controllers;
  use models\Section;
  use Ubiquity\attributes\items\router\Route;
  use Ubiquity\orm\DAO;
+ use Ubiquity\utils\http\URequest;
+ use Ubiquity\utils\http\UResponse;
  use Ubiquity\utils\http\USession;
 
  /**
@@ -30,7 +32,7 @@ class StoreController extends \controllers\ControllerBase{
         }else{
 
         }
-        $this->index();
+        UResponse::header('Location', '/');
 	}
 
     #[Route('store/all/', name: 'store.all')]
