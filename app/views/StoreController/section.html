@@ -1,0 +1,17 @@
+{% block header %}
+<div class="">
+    <h1 class="">Section</h1>
+    <h2 class="">{{ section.name }}</h2>
+</div>
+{% endblock %}
+
+{% block body %}
+<div style="display: flex; flex-wrap : wrap">
+    {% for prod in section.getProducts() %}
+    <div style="width: 30%; margin: 20px;" class="ui segment">
+        <h3>{{prod.name}}</h3>
+        <p>{{prod.price}} euros</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
