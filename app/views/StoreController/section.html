@@ -8,9 +8,18 @@
 {% block body %}
 <div style="display: flex; flex-wrap : wrap">
     {% for prod in section.getProducts() %}
-    <div style="width: 30%; margin: 20px;" class="ui segment">
-        <h3>{{prod.name}}</h3>
-        <p>{{prod.price}} euros</p>
+    <div class="ui link cards" style="width: 30%; margin: 10px;">
+        <div class="card">
+            <div class="image">
+                {{ img('store/' ~ prod.image ~ '.jpg') }}
+            </div>
+            <div class="content">
+                <div class="header">{{prod.name}}</div>
+                <div class="description">
+                    {{prod.price}} euros
+                </div>
+            </div>
+        </div>
     </div>
     {% endfor %}
 </div>
