@@ -5,8 +5,7 @@
 {% endblock %}
 {% block body %}
 <div style="display: flex; flex-wrap : wrap">
-    {% for elm in sections %}
-    {% for prod in elm.getProducts() %}
+    {% for prod in products %}
     <div class="ui link cards" style="width: 30%; margin: 10px;">
         <div class="card">
             <div class="image">
@@ -18,7 +17,7 @@
                     {{prod.price}} euros
                 </div>
             </div>
-            <a href="store/add/{{ prod.id }}" style="width: 100%;">
+            <a href="store/add/{{ prod.id }}/1" style="width: 100%;">
                 <div class="ui bottom attached button">
                     <i class="add icon"></i>
                     To cart
@@ -26,7 +25,6 @@
             </a>
         </div>
     </div>
-    {% endfor %}
     {% endfor %}
 </div>
 {% endblock %}
